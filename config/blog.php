@@ -10,5 +10,7 @@ return [
     'admins' => [
         'danmutwiri@yahoo.com',
         'mutwiridanielsci@gmail.com'
-    ]
+    ],
+
+    'creator' => env('APP_CREATOR')
 ];

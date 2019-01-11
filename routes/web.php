@@ -22,3 +22,7 @@ Route::get("/custom", function (){
 Route::get("/admins", function (){
     dd(config('blog.admins'));
 });
+
+Route::get("/env", function (){
+    dd(config('blog.creator'));
+});
