@@ -26,3 +26,7 @@ Route::get("/admins", function (){
 Route::get("/env", function (){
     dd(config('blog.creator'));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
