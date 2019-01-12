@@ -23,8 +23,8 @@ Route::get("/admins", function (){
     dd(config('blog.admins'));
 });
 
-Route::get("/env", function (){
-    dd(config('blog.creator'));
+Route::middleware('testing_middle')->get("/env", function (){
+    dd(session()->get('test'));
 });
 
 Auth::routes();
