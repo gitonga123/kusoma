@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/{id}', function (\Illuminate\Http\Request $request, $id) {
+    if (!auth()->check()) {
+        throw new \App\Exceptions\HackerAlertException();
+    } else {
+        return \App\User::findOrFail($id);
+    }
+})->where('id', '[0-9]+');
 
 Route::get("/custom", function (){
     dd(config('app.developers'));

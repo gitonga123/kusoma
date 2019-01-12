@@ -6,6 +6,6 @@
  * Time: 9:36 AM
  */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     dd('Route was reached');
 });
