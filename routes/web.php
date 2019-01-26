@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/{id}', function (\Illuminate\Http\Request $request, $id) {
+Route::get('/list-users/{id}', function (\Illuminate\Http\Request $request, $id) {
     if (!auth()->check()) {
         throw new \App\Exceptions\HackerAlertException();
     } else {
@@ -21,6 +21,10 @@ Route::get('/{id}', function (\Illuminate\Http\Request $request, $id) {
 
 Route::get("/custom", function (){
     dd(config('app.developers'));
+});
+
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Route::get("/admins", function (){
@@ -33,4 +37,9 @@ Route::middleware('testing_middle')->get("/env", function (){
 
 Auth::routes();
 
+Route::get('/logout', function() { 
+	auth()->logout();
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/testingvue', 'TestController@index')->name('testingvue');
