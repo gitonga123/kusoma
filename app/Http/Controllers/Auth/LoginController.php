@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use \Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use App\Exceptions\AuthLoginFailedException;
 
 class LoginController extends Controller
 {
@@ -49,5 +50,11 @@ class LoginController extends Controller
     {
         session()->flash('success', 'Successfully Logged in.');
         return response()->json([ 'status' => 'ok']);
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw new AuthLoginFailedException;
+        
     }
 }
