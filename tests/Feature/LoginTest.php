@@ -11,7 +11,7 @@ class LoginTest extends TestCase
 	use RefreshDatabase;
 
     /**
-     * A Login Test Example.
+     * Failed Login Test Sample.
      *
      * @return void
      */
@@ -25,7 +25,11 @@ class LoginTest extends TestCase
         	'message' => 'These credentials do not match our records'
         ]);
     }
-
+     /**
+     * Successful Login Test Sample.
+     *
+     * @return void
+     */
     public function test_correct_response_after_user_logins()
     {
         $user = factory(\App\User::class)->create();
