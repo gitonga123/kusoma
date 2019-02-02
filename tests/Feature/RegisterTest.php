@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mail;
+use App\User;
 use App\Mail\ConfirmYourEmail;
 
 class RegisterTest extends TestCase
@@ -44,5 +45,23 @@ class RegisterTest extends TestCase
         ])->assertRedirect();
 
         Mail::assertSent(ConfirmYourEmail::class);
+    }
+
+    public function test_a_user_has_a_token_after_registration()
+    {
+        $this->withoutExceptionHandling();
+
+        Mail::fake();
+
+        $this->post('/register', [
+            'name' => 'ann Karekia',
+            'email' => "annkarekia@gmail.com",
+            'username' => str_slug('ann Karekia'),
+            'password' => 'secret'
+        ])->assertRedirect();
+        $user  = User::find(1);
+
+        $this->assertNotNull($user->confirm_token);
+        $this->assertFalse($user->isConfirmed());
     }
 }

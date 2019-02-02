@@ -1,12 +1,13 @@
 @component('mail::message')
-# Introduction
+# One more step before joining Bahdcast
 
-The body of your message.
+We need you to confirm your email
 
 @component('mail::button', ['url' => ''])
-Button Text
+Confirm Email
 @endcomponent
 
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent
+ 
