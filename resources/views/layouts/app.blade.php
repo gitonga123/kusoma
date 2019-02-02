@@ -10,8 +10,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    @yield('title', 'Bahdacts')
     <!-- Styles -->
     <link href="{{ asset('css/core.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/thesaas.min.css') }}" rel="stylesheet">
