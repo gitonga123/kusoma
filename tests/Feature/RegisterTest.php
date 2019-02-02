@@ -62,6 +62,6 @@ class RegisterTest extends TestCase
         $user  = User::find(1);
 
         $this->assertNotNull($user->confirm_token);
-        $this->assertFalse($user->isConfirmed());
+        $this->assertFalse($user->fresh()->isConfirmed());
     }
 }

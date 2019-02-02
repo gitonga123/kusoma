@@ -38,8 +38,9 @@ Route::middleware('testing_middle')->get("/env", function (){
 Auth::routes();
 
 Route::get('/logout', function() { 
-	auth()->logout();
+    auth()->logout();
 });
+Route::get('/register/confirm', 'ConfirmEmailController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/testingvue', 'TestController@index')->name('testingvue');
