@@ -11,7 +11,7 @@ use App\User;
 class ConfirmYourEmail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user
+    public $user;
     /**
      * Create a new message instance.
      *

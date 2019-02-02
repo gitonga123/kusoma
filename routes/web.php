@@ -24,7 +24,7 @@ Route::get("/custom", function (){
 });
 
 Route::get('/', function () {
-    return new App\Mail\ConfirmYourEmail();
+    return view('welcome');
 });
 
 Route::get("/admins", function (){

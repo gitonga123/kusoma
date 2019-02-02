@@ -12,6 +12,7 @@ use App\Mail\ConfirmYourEmail;
 class RegisterTest extends TestCase
 {
 	use RefreshDatabase;
+
     /**
      * Test Username On Registration.
      *
@@ -19,6 +20,8 @@ class RegisterTest extends TestCase
      */
     public function test_user_default_username_after_registration()
     {
+        $this->withoutExceptionHandling();
+        
     	$this->post('/register', [
     		'name' => 'james Karekia',
     		'email' => "jameskarekia@gmail.com",

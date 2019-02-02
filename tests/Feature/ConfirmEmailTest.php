@@ -32,6 +32,6 @@ class ConfirmEmailTest extends TestCase
         $user = factory(User::class)->create();
         $this->get("/register/confirm/?token={$user->email}")->assertRedirect('/')->assertSessionHas('error', 'Confirmation Token is broken');
 
-        $this->assertTrue($user->fresh()->isConfirmed());
+        $this->assertFalse($user->fresh()->isConfirmed());
     }
 }
