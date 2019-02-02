@@ -40,7 +40,7 @@ Auth::routes();
 Route::get('/logout', function() { 
     auth()->logout();
 });
-Route::get('/register/confirm', 'ConfirmEmailController@index');
+Route::get('/register/confirm', 'ConfirmEmailController@index')->name('confirm-email');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/testingvue', 'TestController@index')->name('testingvue');
