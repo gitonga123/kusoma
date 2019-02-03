@@ -14,7 +14,7 @@ class UpdateTableUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('confirm_token');
+           // $table->string('confirm_token');
         });
     }
 
@@ -26,7 +26,7 @@ class UpdateTableUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->column('confirm_token');
+            //$table->dropColumn('confirm_token');
         });
     }
 }
