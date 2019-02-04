@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+ namespace App\Http\Middleware;
 
 use Closure;
 
@@ -17,14 +17,13 @@ class Administrator
     public function handle($request, Closure $next)
     {
         if (auth()->check()) {
-            if (in_array(auth()->user()->email, config('blog.admins'))) {
-                dd('You are an Administrator');
+            if (auth()->user()->isAdmin()) {
+                return $next($request);
             } else {
-                dd('You are not an admin');
+                redirect('/');
             }
         } else {
-            dd('Please Log In');
+            return redirect('/');
         }
-        return $next($request);
     }
 }

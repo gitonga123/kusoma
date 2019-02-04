@@ -43,7 +43,7 @@ class SeriesController extends Controller
         //redirect use to a page to see all series
         // with success message
         session()->flash('success', 'Series Created Successfully');
-        return redirect()->back();
+        return redirect('/admin/series');
     }
 
     /**
