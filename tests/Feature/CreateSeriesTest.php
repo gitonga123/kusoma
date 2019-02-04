@@ -21,7 +21,7 @@ class CreateSeriesTest extends TestCase
     public function test_a_user_can_create_a_series()
     {
         $this->withoutExceptionHandling();
-        
+
     	Storage::fake(config('filesystems.default'));
 
     	UploadedFile::fake(config('filesystems.default'));
@@ -29,7 +29,7 @@ class CreateSeriesTest extends TestCase
         	'title' => 'vue.js for the best',
         	'description' => 'The best vue casts ever',
         	'image' => UploadedFile::fake()->image('image-series.png')
-        ])->assertRedirect();
+        ])->assertRedirect()->assertSessionHas('success', 'Series Created Sucessfully');
 
         Storage::disk(config('filesystems.default'))->assertExists('series/' . str_slug('vue.js for the best').'.png');
 

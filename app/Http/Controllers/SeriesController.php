@@ -41,7 +41,8 @@ class SeriesController extends Controller
         $request->uploadSeriesImage()->storeSeries();
 
         //redirect use to a page to see all series
-
+        // with success message
+        session()->flash('success', 'Series Created Successfully');
         return redirect()->back();
     }
 
